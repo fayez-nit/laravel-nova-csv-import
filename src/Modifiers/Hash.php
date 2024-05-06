@@ -24,8 +24,8 @@ class Hash implements Modifier
                 'options' => hash_algos(),
                 'help' => 'See the
                     <a href="https://www.php.net/manual/en/function.hash.php" target="_blank">PHP documentation</a>
-                    for more details about hashing.'
-            ]
+                    for more details about hashing.',
+            ],
         ];
     }
 

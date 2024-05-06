@@ -6,13 +6,10 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class ImportNovaRequest extends NovaRequest
 {
-    /**
-     * @var
-     */
     protected $importResource;
 
     /**
-     * @param mixed $resource
+     * @param  mixed  $resource
      */
     public function setImportResource($resource): self
     {

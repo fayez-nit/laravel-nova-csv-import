@@ -164,7 +164,7 @@ class ImportController
             ->setCustomValues($config['values'])
             ->setRandomStringSettings($config['random'])
             ->setModifiers($config['modifiers'])
-            ->import($path, $this->getDisk());
+            ->queue($path, $this->getDisk());
 
         $failures = $this->importer->failures();
         $errors = $this->importer->errors();

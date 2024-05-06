@@ -2,9 +2,9 @@
 
 namespace SimonHamp\LaravelNovaCsvImport;
 
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Laravel\Nova\Resource;
 use Maatwebsite\Excel\Concerns\Importable;
@@ -21,9 +21,9 @@ use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\WithValidation;
 use SimonHamp\LaravelNovaCsvImport\Concerns\HasModifiers;
 
-class Importer implements ToModel, WithValidation, WithHeadingRow, WithMapping, WithBatchInserts, WithChunkReading, SkipsOnFailure, SkipsOnError, SkipsEmptyRows
+class Importer implements ShouldQueue, SkipsEmptyRows, SkipsOnError, SkipsOnFailure, ToModel, WithBatchInserts, WithChunkReading, WithHeadingRow, WithMapping, WithValidation
 {
-    use Importable, SkipsFailures, SkipsErrors, HasModifiers;
+    use HasModifiers, Importable, SkipsErrors, SkipsFailures;
 
     protected Resource $resource;
 
