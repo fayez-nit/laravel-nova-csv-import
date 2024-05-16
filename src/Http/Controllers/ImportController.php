@@ -218,7 +218,9 @@ class ImportController
 
             return [
                 'name' => $field->name,
-                'attribute' => $field->attribute,
+                'attribute' => $field->component === 'belongs-to-field'
+                ? $field->attribute.'_id'
+                : $field->attribute,
                 'rules' => $this->extractValidationRules($novaResource, $request)->get($field->attribute),
             ];
         });
